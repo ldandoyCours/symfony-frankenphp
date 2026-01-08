@@ -1,5 +1,5 @@
 # ========= Base commune =========
-FROM dunglas/frankenphp:1-php8.3-alpine AS base
+FROM dunglas/frankenphp:1-php8.4-alpine AS base
 WORKDIR /app
 
 # Paquets système (intl, zip, gd, etc. si besoin)
@@ -13,16 +13,26 @@ RUN apk add --no-cache \
 # Xdebug optionnel en dev
 ARG INSTALL_XDEBUG=false
 RUN if [ "$INSTALL_XDEBUG" = "true" ]; then \
-      apk add --no-cache $PHPIZE_DEPS \
+      apk add --no-cache $PHPIZE_DEPS linux-headers \
       && pecl install xdebug \
-      && docker-php-ext-enable xdebug ; \
+      && docker-php-ext-enable xdebug \
+      && apk del $PHPIZE_DEPS linux-headers ; \
     fi
 
+# Configuration PHP
+COPY ./config/php.ini /usr/local/etc/php/conf.d/custom.ini
+
 # Caddyfile pour FrankenPHP
-COPY ./Caddyfile /etc/caddy/Caddyfile
+COPY ./config/Caddyfile /etc/caddy/Caddyfile
 
 # >>> AJOUTER COMPOSER <<<
 COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+
+# >>> AJOUTER SYMFONY CLI <<<
+RUN wget https://github.com/symfony-cli/symfony-cli/releases/latest/download/symfony-cli_linux_amd64.tar.gz \
+    && tar -xzf symfony-cli_linux_amd64.tar.gz -C /usr/local/bin \
+    && rm symfony-cli_linux_amd64.tar.gz \
+    && chmod +x /usr/local/bin/symfony
 
 # ========= Image Dev =========
 FROM base AS dev

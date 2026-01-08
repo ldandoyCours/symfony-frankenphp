@@ -1,6 +1,6 @@
-# Symfony 7 + FrankenPHP (Docker)
+# Symfony 8 + FrankenPHP (Docker)
 
-Environnement de dev prêt-à-l’emploi pour Symfony 7 avec FrankenPHP + Caddy sous Docker. Fonctionne sous Windows (WSL2), macOS et Linux.
+Environnement de dev prêt-à-l’emploi pour Symfony 8 avec FrankenPHP + Caddy sous Docker. Fonctionne sous Windows (WSL2), macOS et Linux.
 
 ## 🚀 Prérequis
 
@@ -10,6 +10,7 @@ Environnement de dev prêt-à-l’emploi pour Symfony 7 avec FrankenPHP + Caddy 
 ## 📦 Démarrer le projet
 
 Clone le dépôt :
+
 ```bash
 git clone https://github.com/ldandoyCours/symfony-frankenphp.git
 cd symfony-frankenphp

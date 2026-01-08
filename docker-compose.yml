@@ -4,18 +4,18 @@ services:
       context: .
       dockerfile: Dockerfile
       target: dev
+      args:
+        INSTALL_XDEBUG: "true" # À ajouter
     container_name: symfony_app
     volumes:
       - ./app:/app
     ports:
-      - "8001:8080"   # http://localhost:8080
-    env_file:
-      - .env.docker
+      - "8001:8080" # http://localhost:8080
     environment:
       APP_ENV: dev
       SERVER_NAME: :8080
       CADDY_MERCURE: "off"
-      XDEBUG_MODE: "${XDEBUG_MODE:-off}"  # active avec XDEBUG_MODE=debug
+      XDEBUG_MODE: "debug" # active avec XDEBUG_MODE=debug
     depends_on:
       - db
 
@@ -45,8 +45,8 @@ services:
     image: axllent/mailpit:latest
     container_name: symfony_mailpit
     ports:
-      - "8025:8025"  # UI Mailpit
-      - "1025:1025"  # SMTP
+      - "8025:8025" # UI Mailpit
+      - "1025:1025" # SMTP
 
 volumes:
   dbdata:
