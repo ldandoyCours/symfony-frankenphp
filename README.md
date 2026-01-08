@@ -35,9 +35,11 @@ cp app/.env app/.env.local
 ```bash
 .
 ├─ app/                 # Code Symfony (public/, config/, src/, etc.)
+├─ config/
+    └─ Caddyfile        # Config Caddy/FrankenPHP (router Symfony)
+    └─ php.ini          # Config du PHP.ini
 ├─ Dockerfile           # Image FrankenPHP + PHP extensions + Composer
 ├─ docker-compose.yml   # Services, volumes, ports, env
-└─ Caddyfile            # Config Caddy/FrankenPHP (router Symfony)
 ```
 
 Le dépôt expose bien Dockerfile, docker-compose.yml et Caddyfile à la racine GitHub.
@@ -63,6 +65,6 @@ docker compose exec app php bin/console cache:clear
 
 ## 📚 Liens utiles
 
-- Symfony 7 – Docs : https://symfony.com/doc/current/index.html
+- Symfony 8 – Docs : https://symfony.com/doc/current/index.html
 - FrankenPHP : https://frankenphp.dev
-- Caddy v2 – Docs : https://caddyserver.com/docs/
+- Caddy – Docs : https://caddyserver.com/docs/
