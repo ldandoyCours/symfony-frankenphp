@@ -27,7 +27,25 @@ docker compose up --build -d
 Copie le .env de base si besoin :
 
 ```bash
-cp app/.env app/.env.local
+cp app/.env.example app/.env.local
+```
+
+`.env.example`
+```text
+###> symfony/framework-bundle ###
+APP_ENV=dev
+APP_SECRET=
+APP_SHARE_DIR=var/share
+###< symfony/framework-bundle ###
+
+###> symfony/routing ###
+DEFAULT_URI=http://localhost
+###< symfony/routing ###
+
+###> symfony/mailer ###
+MAILER_DSN=null://null
+###< symfony/mailer ###
+
 ```
 
 ## 🧭 Organisation
