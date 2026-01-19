@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@source "../../vendor/tales-from-a-dev/flowbite-bundle/templates/**/*.html.twig";
+
+body {
+    background-color: #f9fafb;
+}
+
+.container {
+    @apply w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+    @apply bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700;
+}

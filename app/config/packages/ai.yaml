@@ -1,0 +1,27 @@
+ai:
+    platform:
+        # Inference Platform configuration
+        # see https://github.com/symfony/ai/tree/main/src/platform#platform-bridges
+
+        # openai:
+        #    api_key: '%env(OPENAI_API_KEY)%'
+        ollama:
+            host_url: "%env(OLLAMA_HOST_URL)%"
+
+    agent:
+        # Agent configuration
+        # see https://symfony.com/doc/current/ai/bundles/ai-bundle.html
+
+        default:
+           platform: 'ai.platform.ollama'
+           model: 'llama3.2'
+           prompt: |
+               You are a helpful assistant.
+
+    store:
+        # Store configuration
+
+        # chromadb:
+        #    default:
+        #        client: 'client.service.id'
+        #        collection: 'my_collection'

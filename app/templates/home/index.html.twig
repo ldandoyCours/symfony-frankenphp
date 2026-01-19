@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center text-orange-900 text-4xl">Hello {{ firstname }}!</h1>
+        <div>
+            {{form(form)}}
+        </div>
+    </div>
+{% endblock %}

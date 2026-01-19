@@ -27,7 +27,7 @@ docker compose up --build -d
 Copie le .env de base si besoin :
 
 ```bash
-cp app/.env app/.env.local
+cp app/.env.example app/.env
 ```
 
 ## 🧭 Organisation
