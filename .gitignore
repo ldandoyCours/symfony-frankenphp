@@ -1,2 +1,6 @@
 .env
+<<<<<<< HEAD
 .env.dev
+=======
+.env.local
+>>>>>>> f17d7a7475fac06a5102c5bb476a41dcda4ff24a

@@ -6,7 +6,7 @@ services:
       target: dev
       args:
         INSTALL_XDEBUG: "true" # À ajouter
-    container_name: symfony_app
+    container_name: symfony_ia_app
     volumes:
       - ./app:/app
     ports:
@@ -18,10 +18,12 @@ services:
       XDEBUG_MODE: "debug" # active avec XDEBUG_MODE=debug
     depends_on:
       - db
+    networks:
+      - sf-IA
 
   db:
     image: mysql:8.0
-    container_name: symfony_db
+    container_name: symfony_ia_db
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_DATABASE: app
@@ -30,23 +32,34 @@ services:
       - "3306:3306"
     volumes:
       - dbdata:/var/lib/mysql
+    networks:
+      - sf-IA
 
   phpmyadmin:
     image: phpmyadmin
+    container_name: symfony_ia_phpmyadmin
     ports:
       - 8080:80
     depends_on:
       - db
     environment:
-      - PMA_HOST=symfony_db
+      - PMA_HOST=symfony_ia_db
       - UPLOAD_LIMIT=64M
+    networks:
+      - sf-IA
 
   mailpit:
     image: axllent/mailpit:latest
-    container_name: symfony_mailpit
+    container_name: symfony_ia_mailpit
     ports:
       - "8025:8025" # UI Mailpit
       - "1025:1025" # SMTP
+    networks:
+      - sf-IA
 
 volumes:
   dbdata:
+
+
+networks:
+  sf-IA:
