@@ -44,10 +44,6 @@ DEFAULT_URI=http://localhost
 ###> doctrine/doctrine-bundle ###
 DATABASE_URL="mysql://root:@symfony_db:3306/app?serverVersion=8.0&charset=utf8mb4"
 ###< doctrine/doctrine-bundle ###
-
-###> symfony/ai-bundle ###
-OLLAMA_HOST_URL=http://127.0.0.1:11434
-###< symfony/ai-bundle ###
 ```
 
 ## 🧭 Organisation
