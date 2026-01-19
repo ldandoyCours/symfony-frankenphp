@@ -45,9 +45,9 @@ DEFAULT_URI=http://localhost
 DATABASE_URL="mysql://root:@symfony_db:3306/app?serverVersion=8.0&charset=utf8mb4"
 ###< doctrine/doctrine-bundle ###
 
-###> symfony/ai-bundle ###
-OLLAMA_HOST_URL=http://127.0.0.1:11434
-###< symfony/ai-bundle ###
+###> symfony/mailer ###
+MAILER_DSN=smtp://symfony_mailpit:8025
+###< symfony/mailer ###
 ```
 
 ## 🧭 Organisation
@@ -82,6 +82,12 @@ docker compose exec app php bin/console about
 docker compose exec app php bin/console cache:clear
 
 ```
+
+## 📚 Accès aux services
+
+- App Symfony : http://localhost:8001
+- PHPMyAdmin : http://localhost:8080
+- Mailpit Web : http://localhost:8025
 
 ## 📚 Liens utiles
 
