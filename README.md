@@ -46,7 +46,7 @@ DATABASE_URL="mysql://root:@symfony_db:3306/app?serverVersion=8.0&charset=utf8mb
 ###< doctrine/doctrine-bundle ###
 
 ###> symfony/mailer ###
-MAILER_DSN=smtp://symfony_mailpit:8025
+MAILER_DSN=smtp://symfony_mailpit:1025
 ###< symfony/mailer ###
 ```
 
